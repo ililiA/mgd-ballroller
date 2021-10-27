@@ -13,6 +13,11 @@ public class ArrowController : MonoBehaviour
         arrowScale = Vector3.one;   //set the reference size to 1,1,1
     }
 
+    void Awake() 
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {

@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour
 {
     // get a reference to the playerMovement script
     public PlayerMovement player;
+    //public PlayerMovement powerup;
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +16,8 @@ public class InputManager : MonoBehaviour
         {
             player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         }
+
+        //powerup = 0;
     }
 
     // Update is called once per frame
@@ -26,6 +30,16 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             player.Jump();
+            /*
+            if(powerup > 0)
+            {
+                player.Jump();
+            }
+            else
+            {
+                Debug.Log("You need a PowerUp to jump!");
+            }
+            */
         }
 
     }

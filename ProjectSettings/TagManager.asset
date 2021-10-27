@@ -8,6 +8,7 @@ TagManager:
   - Hole1
   - Floor
   - Coin
+  - PowerUp
   layers:
   - Default
   - TransparentFX

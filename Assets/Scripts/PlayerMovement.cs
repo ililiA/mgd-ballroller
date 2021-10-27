@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -11,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 dir; //this is the direction we want to add force
     public bool isGrounded = true;
 
+    public int powerup = 0;
     int coins = 0;
+    public TextMeshProUGUI coinText;
 
     public Vector3 startPosition;  //assign this in start()
     
@@ -28,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
       rb = this.GetComponent<Rigidbody>();  
       startPosition = GameObject.Find("Start Here").transform.position;
       ResetPlayer();
+      coins = 0;
+      coinText.text = "Coins: " + coins;
     }
 
     void FixedUpdate()
@@ -43,10 +49,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayer()
     {
-        this.transform.position = startPosition;     //move player
+        startPosition = GameObject.Find("Start Here").transform.position;
         rb.velocity = Vector3.zero;                 //set speed to zero
         rb.angularVelocity = Vector3.zero;          //set rotation to zero
         this.transform.rotation = Quaternion.identity;  //set rotaion to 0,0,0
+        this.transform.position = startPosition;     //move player
     }
 
     public void Jump()
@@ -67,7 +74,13 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
-            coins++;
+            coins += 1;
+            coinText.text = "Coins: " + coins;
+        }
+        if(other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(other.gameObject);
+            powerup += 1;
         }
     }
 
@@ -78,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    
 
     // create a function to move
    // public void MoveHorizontal(float force)
