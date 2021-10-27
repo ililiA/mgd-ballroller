@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5969714096450606699}
+  - component: {fileID: -2222569736395242163}
   m_Layer: 0
   m_Name: Canvas Stuff
   m_TagString: Untagged
@@ -198,6 +199,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2222569736395242163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2866441277530702824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3297cf8a6ff8d4094fcb86159e87cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 337256216141351650}
+  score: 0
 --- !u!1 &5546671769924446515
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,13 @@ public class ChangeLevel : MonoBehaviour
 
     public void ChangeScene()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            PlayerPrefs.SetInt("Score", 0);
+            PlayerPrefs.SetInt("canJump", 0);
+            //canDash
+        }
+
         SceneManager.LoadScene(destination);
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         player.startPosition = GameObject.Find("Start Here").transform.position;
@@ -25,4 +32,19 @@ public class ChangeLevel : MonoBehaviour
             ChangeScene();
         }
     }
+
+    /*
+    at the start of a new level
+    1. game manager instantiates the player prefab in start location
+    2. the ui controller (on canvas) loads score
+    3. player loads powerups
+
+    at the end of a level
+    1. the ui controller saves score
+    2. the player saves powerups
+    3. how do we call these functions?
+
+    at main menu and credits
+    1. none of that stuff happens
+    */
 }

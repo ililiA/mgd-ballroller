@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Coin
   - PowerUp
+  - JumpPowerUp
   layers:
   - Default
   - TransparentFX

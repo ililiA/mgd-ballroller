@@ -7,33 +7,48 @@ using TMPro;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
+    public UIController ui;
+
     [Tooltip("Speed multiplier for Horizontal and Vertical movement.")]
     [Range(5,50)]
     public float speed = 10, jumpForce = 5;
+
     public Vector3 dir; //this is the direction we want to add force
-    public bool isGrounded = true;
-
-    public int powerup = 0;
-    int coins = 0;
-    public TextMeshProUGUI coinText;
-
     public Vector3 startPosition;  //assign this in start()
-    
+
+    public bool isGrounded = true;      //these don't need to be public
+    public bool canJump = false;
+
     // get a reference to the rigidbody
     Rigidbody rb;
+    int coins = 0;
 
+    /*
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
+    */
     
     void Start()
     {
-      rb = this.GetComponent<Rigidbody>();  
+      rb = this.GetComponent<Rigidbody>(); 
+
       startPosition = GameObject.Find("Start Here").transform.position;
       ResetPlayer();
+
       coins = 0;
-      coinText.text = "Coins: " + coins;
+      //scoreText.text = "Coins: " + score;
+
+      if(ui == null)
+      {
+        ui = GameObject.Find("Score").GetComponent<UIController>();
+      }
+
+      if(PlayerPrefs.GetInt("canJump") == 1)
+      {
+        canJump = true;
+      }
     }
 
     void FixedUpdate()
@@ -46,9 +61,11 @@ public class PlayerMovement : MonoBehaviour
             ResetPlayer();
         }
     }
-
+    
     public void ResetPlayer()
     {
+        //canJump = false;
+
         startPosition = GameObject.Find("Start Here").transform.position;
         rb.velocity = Vector3.zero;                 //set speed to zero
         rb.angularVelocity = Vector3.zero;          //set rotation to zero
@@ -58,9 +75,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if(isGrounded)
+        if(isGrounded && canJump)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("Jumping!");
+        }
+        else
+        {
+            Debug.Log("You need a PowerUp to jump!");
         }
     }
 
@@ -71,16 +93,17 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
         }
 
-        if(other.gameObject.CompareTag("Coin"))
+        else if(other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
-            coins += 1;
-            coinText.text = "Coins: " + coins;
+            coins ++;
+            ui.AddScore();
         }
-        if(other.gameObject.CompareTag("PowerUp"))
+        else if(other.gameObject.CompareTag("JumpPowerUp"))
         {
+            canJump = true;
+            PlayerPrefs.SetInt("canJump", 1);        // 1 is true, 0 is false
             Destroy(other.gameObject);
-            powerup += 1;
         }
     }
 
