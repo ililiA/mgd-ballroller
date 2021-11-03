@@ -8,27 +8,33 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     public UIController ui;
+    public Camera mainCam;      //attach main camera here
 
     [Tooltip("Speed multiplier for Horizontal and Vertical movement.")]
     [Range(5,50)]
-    public float speed = 10, jumpForce = 5;
+    public float speed = 10, jumpForce = 5, dashForce = 10;
 
     public Vector3 dir; //this is the direction we want to add force
     public Vector3 startPosition;  //assign this in start()
 
     public bool isGrounded = true;      //these don't need to be public
     public bool canJump = false;
+    public bool canDash = true;
 
     // get a reference to the rigidbody
     Rigidbody rb;
     int coins = 0;
 
-    /*
+    
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
+        if(mainCam == null)
+      {
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+      }
     }
-    */
+    
     
     void Start()
     {
@@ -48,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
       if(PlayerPrefs.GetInt("canJump") == 1)
       {
         canJump = true;
+      }
+
+      if(mainCam == null)
+      {
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
       }
     }
 
@@ -86,6 +97,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Dash()
+    {
+        if(canDash)
+        {
+            //optionally, cancel out velocity to move in new direction
+            rb.velocity = Vector3.zero;
+            rb.AddForce(dir * dashForce, ForceMode.Impulse);
+            StartCoroutine(Wait());
+        }
+    }
+
+    IEnumerator Wait(float waitTime = 1f)
+    {
+        canDash = false;       // if true, not it is not true
+        yield return new WaitForSeconds(waitTime);
+        canDash = true;       // if false, now it is not false
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Floor"))
@@ -105,6 +135,11 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("canJump", 1);        // 1 is true, 0 is false
             Destroy(other.gameObject);
         }
+        else if(other.gameObject.CompareTag("AltCam"))
+        {
+            mainCam.gameObject.SetActive(false);
+            other.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -112,6 +147,12 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Floor"))
         {
             isGrounded = false;
+        }
+        
+        if(other.gameObject.CompareTag("AltCam"))
+        {
+            mainCam.gameObject.SetActive(true);
+            other.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
