@@ -30,12 +30,11 @@ public class PlayerMovement : MonoBehaviour
     {
         //DontDestroyOnLoad(this.gameObject);
         if(mainCam == null)
-      {
-        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-      }
+        {
+            mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        }
     }
-    
-    
+        
     void Start()
     {
       rb = this.GetComponent<Rigidbody>(); 
@@ -48,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
       if(ui == null)
       {
-        ui = GameObject.Find("Score").GetComponent<UIController>();
+        ui = GameObject.Find("Canvas Stuff").GetComponent<UIController>();
       }
 
       if(PlayerPrefs.GetInt("canJump") == 1)
@@ -122,9 +121,9 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
-
         else if(other.gameObject.CompareTag("Coin"))
         {
+            Debug.Log("You got a coin!");
             Destroy(other.gameObject);
             coins ++;
             ui.AddScore();

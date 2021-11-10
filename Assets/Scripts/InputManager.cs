@@ -34,7 +34,6 @@ public class InputManager : MonoBehaviour
         {
             pauseMenu = GameObject.Find("PauseMenu");
         }
-
     }
 
     void Pause()
@@ -61,6 +60,7 @@ public class InputManager : MonoBehaviour
             Pause();
         }
 
+        /*
         if(Input.GetKey(KeyCode.LeftControl))
         {
             if(Input.GetKeyDown(KeyCode.Q))
@@ -69,6 +69,7 @@ public class InputManager : MonoBehaviour
                 UnityEditor.EditorApplication.isPlaying = false;
             }
         }
+        */
 
         // call movement every frame and send its axis data
         player.dir.x = Input.GetAxis("Horizontal");
