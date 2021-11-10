@@ -8,7 +8,7 @@ public class ScenePicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int progress = PlayerPrefs.GetInt("Progress", 1);
+        int progress = PlayerPrefs.GetInt("Progress", 3);
         Button[] buttons = new Button[transform.childCount];
 
         /*set all buttons to NOT interactable
@@ -38,5 +38,11 @@ public class ScenePicker : MonoBehaviour
         {
             buttons[i].interactable = true;
         }
+    }
+
+    public void ResetProgress()
+    {
+        PlayerPrefs.SetInt("Progress", 2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("levelselect");
     }
 }

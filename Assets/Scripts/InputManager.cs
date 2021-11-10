@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InputManager : MonoBehaviour
 {
     // get a reference to the playerMovement script

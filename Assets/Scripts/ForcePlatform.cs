@@ -1,3 +1,5 @@
+//bounce that boi
+// have a bunch that connect like a warp/boost (single use)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +9,14 @@ public class ForcePlatform : MonoBehaviour
     public float force = 10f;
     public bool zeroOtVelocity = true;
     public bool singleUse = false;
+
+    void OnDrawGizmosSelected()
+    {
+        // Draws a 1/2 unit long cyan line in the direction of the force
+        Gizmos.color = Color.cyan;
+        Vector3 direction = transform.TransformDirection(Vector3.up) * force * .5f;
+        Gizmos.DrawRay(transform.position, direction);
+    }
 
     void OnTriggerEnter(Collider other)
     {

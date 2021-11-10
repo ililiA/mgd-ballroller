@@ -723,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: Level 2
+  levelWithJump: 7
 --- !u!1 &641364723
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +736,8 @@ GameObject:
   - component: {fileID: 641364725}
   - component: {fileID: 641364724}
   - component: {fileID: 641364727}
+  - component: {fileID: 641364729}
+  - component: {fileID: 641364728}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -839,6 +842,37 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &641364728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641364723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436ddc98bdf98124f9d713745a1ae676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constraint: {fileID: 0}
+  player: {fileID: 0}
+--- !u!1818360608 &641364729
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641364723}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 11.61, z: -2.3}
+  m_TranslationOffset: {x: 0, y: 10, z: -2}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_IsContraintActive: 0
+  m_IsLocked: 0
+  m_Sources: []
 --- !u!1 &777796882
 GameObject:
   m_ObjectHideFlags: 0

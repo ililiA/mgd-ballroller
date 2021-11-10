@@ -9,8 +9,9 @@ public class ChangeLevel : MonoBehaviour
     [Tooltip("The name of the level you want to go to.")]
     public string destination = "Level 2";
 
+    public int levelWithJump = 7;
 
-    public void ChangeScene()
+    void Awake()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -18,6 +19,24 @@ public class ChangeLevel : MonoBehaviour
             PlayerPrefs.SetInt("canJump", 0);
             //canDash
         }
+        else if(SceneManager.GetActiveScene().buildIndex >= levelWithJump)
+        {
+            PlayerPrefs.SetInt("canJump", 1);
+        }
+        Time.timeScale = 1;
+    }
+
+
+    public void ChangeScene()
+    {
+        /*
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            PlayerPrefs.SetInt("Score", 0);
+            PlayerPrefs.SetInt("canJump", 0);
+            //canDash
+        }
+        */
 
         // use playerprefs to save the current level
         PlayerPrefs.SetInt("Progress", SceneManager.GetActiveScene().buildIndex + 1);

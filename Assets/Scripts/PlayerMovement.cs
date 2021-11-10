@@ -139,6 +139,13 @@ public class PlayerMovement : MonoBehaviour
             mainCam.gameObject.SetActive(false);
             other.transform.GetChild(0).gameObject.SetActive(true);
         }
+        /*
+        else if(other.gameObject.CompareTag("Sand"))
+        {
+            isGrounded = true;
+            rb.mass *= 2;
+        }
+        */
     }
 
     void OnTriggerExit(Collider other)
@@ -153,6 +160,13 @@ public class PlayerMovement : MonoBehaviour
             mainCam.gameObject.SetActive(true);
             other.transform.GetChild(0).gameObject.SetActive(false);
         }
+        /*
+        if(other.gameObject.CompareTag("Sand"))
+        {
+            isGrounded = false;
+            rb.mass /= 2;
+        }
+        */
     }
 
     
