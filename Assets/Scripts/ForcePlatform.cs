@@ -10,6 +10,13 @@ public class ForcePlatform : MonoBehaviour
     public bool zeroOtVelocity = true;
     public bool singleUse = false;
 
+    [Header("Audio")]
+    
+    public AudioSource aud;
+    public AudioClip forceClip;
+    [Range(0f, 1f)]
+    public float forceVolume = .5f;
+
     void OnDrawGizmosSelected()
     {
         // Draws a 1/2 unit long cyan line in the direction of the force
@@ -22,6 +29,7 @@ public class ForcePlatform : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            aud.PlayOneShot(forceClip);
             //get the rigidbody component of player
             Rigidbody rb = other.GetComponent<Rigidbody>();
             // stop the player's movement

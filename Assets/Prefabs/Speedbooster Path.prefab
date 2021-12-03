@@ -114,6 +114,9 @@ MonoBehaviour:
   force: 0
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339090145884941
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5000,6 +5003,9 @@ MonoBehaviour:
   force: 15
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339090340533583
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9886,6 +9892,9 @@ MonoBehaviour:
   force: 0
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339090448510103
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14772,6 +14781,9 @@ MonoBehaviour:
   force: 15
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339090871227214
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -19658,6 +19670,9 @@ MonoBehaviour:
   force: 0
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339091008229405
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -24544,6 +24559,9 @@ MonoBehaviour:
   force: 15
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339091028134262
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -29430,6 +29448,9 @@ MonoBehaviour:
   force: 10
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339091210944316
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -34316,6 +34337,9 @@ MonoBehaviour:
   force: 0
   zeroOtVelocity: 1
   singleUse: 1
+  aud: {fileID: 3477793751540782214, guid: 86b07783ab470914c915d5d761ca5f88, type: 3}
+  forceClip: {fileID: 8300000, guid: 0bacd009df378424783a4dec98894ca7, type: 3}
+  forceVolume: 0.5
 --- !u!198 &6791339091687245729
 ParticleSystem:
   m_ObjectHideFlags: 0

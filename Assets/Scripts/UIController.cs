@@ -9,7 +9,6 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int score = 0;
     
-    
     void Awake()
     {
         //DontDestroyOnLoad(this.gameObject);

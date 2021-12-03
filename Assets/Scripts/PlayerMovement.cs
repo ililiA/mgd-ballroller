@@ -25,6 +25,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     int coins = 0;
 
+    [Header("Audio")]
+    
+    public AudioSource aud;
+    public AudioClip coinClip;
+    [Range(0f, 1f)]
+    public float coinVolume = .5f;
+
     
     void Awake()
     {
@@ -127,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             coins ++;
             ui.AddScore();
+            aud.PlayOneShot(coinClip);
         }
         else if(other.gameObject.CompareTag("JumpPowerUp"))
         {

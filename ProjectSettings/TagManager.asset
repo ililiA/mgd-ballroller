@@ -12,6 +12,12 @@ TagManager:
   - JumpPowerUp
   - AltCam
   - Pause
+  - Stop1
+  - Stop2
+  - Banana
+  - Text
+  - NoText
+  - BGM
   layers:
   - Default
   - TransparentFX
